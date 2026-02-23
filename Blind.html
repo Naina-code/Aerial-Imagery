@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blind Mode</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #000000;
+      color: #ffffff;
+    }
+
+    /* Layout */
+    .layout {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* LEFT COLUMN – HISTORY */
+    .sidebar {
+      width: 280px;
+      background: #000000;
+      border-right: 3px solid #ffffff;
+      padding: 28px;
+    }
+
+    .sidebar h2 {
+      font-size: 24px;
+      margin-bottom: 24px;
+    }
+
+    .history-item {
+      padding: 14px;
+      border: 2px solid #ffffff;
+      margin-bottom: 14px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .history-item:focus,
+    .history-item:hover {
+      background: #ffffff;
+      color: #000000;
+    }
+
+    /* MAIN CONTENT */
+    .main {
+      flex: 1;
+      padding: 40px 60px;
+    }
+
+    .top-link {
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 40px;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 22px;
+      max-width: 720px;
+      margin: auto;
+      line-height: 1.7;
+    }
+
+    .hero button {
+      margin-top: 40px;
+      padding: 18px 48px;
+      font-size: 20px;
+      border: 3px solid #ffffff;
+      background: #ffffff;
+      color: #000000;
+      cursor: pointer;
+    }
+
+    .hero button:hover,
+    .hero button:focus {
+      background: #000000;
+      color: #ffffff;
+    }
+
+    /* CONTROLS */
+    .controls {
+      margin-top: 80px;
+    }
+
+    .controls h2 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 40px;
+    }
+
+    .control-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .control-card {
+      border: 3px solid #ffffff;
+      padding: 28px;
+      font-size: 18px;
+    }
+
+    .control-card h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .control-card p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="layout">
+
+  <!-- LEFT HISTORY COLUMN -->
+  <aside class="sidebar">
+    <h2>History</h2>
+
+    <div tabindex="0" class="history-item">City Aerial Description</div>
+    <div tabindex="0" class="history-item">Forest Image Audio</div>
+    <div tabindex="0" class="history-item">Coastal Area Narration</div>
+    <div tabindex="0" class="history-item">Farmland Voice Output</div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <a href="#" class="top-link">← Back to Home</a>
+
+    <section class="hero">
+      <h1>Blind Mode</h1>
+      <p>
+        Voice-first interface designed for visually impaired users.
+        Upload an image, hear its description, and control audio using simple commands.
+      </p>
+
+      <button aria-label="Start voice interaction">
+        Start Voice Interaction
+      </button>
+    </section>
+
+    <section class="controls">
+      <h2>Audio & Voice Controls</h2>
+
+      <div class="control-grid">
+
+        <div class="control-card">
+          <h3>🎤 Voice Commands</h3>
+          <p>Use microphone to upload image, generate description, and control playback.</p>
+        </div>
+
+        <div class="control-card">
+          <h3>🔊 Audio Description</h3>
+          <p>Automatically plays image description after generation.</p>
+        </div>
+
+        <div class="control-card">
+          <h3>⏯ Playback Control</h3>
+          <p>Pause, resume, rewind 10 seconds using voice or buttons.</p>
+        </div>
+
+        <div class="control-card">
+          <h3>⬇ Download Audio</h3>
+          <p>Download the generated narration for offline listening.</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+</div>
+
+</body>
+</html>

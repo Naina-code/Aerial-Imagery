@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Normal</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #000000;
+      color: #ffffff;
+    }
+
+    /* Layout */
+    .layout {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* LEFT COLUMN - HISTORY */
+    .sidebar {
+      width: 260px;
+      background: #000000;
+      border-right: 1px solid #1f2933;
+      padding: 25px;
+    }
+
+    .sidebar h2 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    .history-item {
+      padding: 12px;
+      border-radius: 8px;
+      background: #111827;
+      margin-bottom: 10px;
+      font-size: 14px;
+      cursor: pointer;
+      color: #ffffff;
+    }
+
+    .history-item:hover {
+      background: #1f2933;
+    }
+
+    /* MAIN CONTENT */
+    .main {
+      flex: 1;
+      padding: 30px 40px;
+    }
+
+    .top-link {
+      color: #60a5fa;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 15px;
+      color: #ffffff;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #d1d5db;
+      max-width: 650px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+    .hero button {
+      margin-top: 30px;
+      padding: 14px 36px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      background: #2563eb;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* Features */
+    .features {
+      margin-top: 80px;
+    }
+
+    .features h2 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 40px;
+      color: #ffffff;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: #111827;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      background: #1f2933;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: #60a5fa;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: #ffffff;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #d1d5db;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="layout">
+
+  <!-- LEFT HISTORY COLUMN -->
+  <aside class="sidebar">
+    <h2>History</h2>
+
+    <div class="history-item">Satellite Image – City</div>
+    <div class="history-item">Forest Area Analysis</div>
+    <div class="history-item">Coastal Aerial View</div>
+    <div class="history-item">Agricultural Land</div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <a href="#" class="top-link">← Back to Home</a>
+
+    <section class="hero">
+      <h1>Normal</h1>
+      <p>
+        Upload aerial images and generate text and audio descriptions.
+        Designed for both normal users and visually impaired users.
+      </p>
+      <button>Get Started →</button>
+    </section>
+
+    <section class="features">
+      <h2>Powerful Features</h2>
+
+      <div class="grid">
+        <div class="card">
+          <div class="icon">🖼</div>
+          <h3>Image Upload & Preview</h3>
+          <p>Drag and drop images with instant preview.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">✨</div>
+          <h3>Description Generation</h3>
+          <p>AI-generated image descriptions.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🔊</div>
+          <h3>Audio Output</h3>
+          <p>Listen to descriptions using text-to-speech.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">⬇</div>
+          <h3>Download</h3>
+          <p>Download image and audio files.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🎤</div>
+          <h3>Voice Input</h3>
+          <p>Use microphone for commands.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">⏸</div>
+          <h3>Audio Controls</h3>
+          <p>Pause, resume, rewind audio narration.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+</div>
+
+</body>
+</html>
