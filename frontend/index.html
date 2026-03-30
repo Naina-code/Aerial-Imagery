@@ -5,85 +5,51 @@
 <title>Aerial Imagery</title>
 
 <style>
-
 body{
-    margin:0;
-    background:#000;
-    color:#fff;
-    font-family: "Segoe UI", sans-serif;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    height:100vh;
+margin:0;
+background:#000;
+color:#fff;
+font-family:Segoe UI;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
 }
 
 .container{
-    text-align:center;
+text-align:center;
 }
 
 h1{
-    font-size:48px;
-    margin-bottom:10px;
+font-size:48px;
+margin-bottom:10px;
 }
 
 .subtitle{
-    color:#aaa;
-    margin-bottom:40px;
+color:#aaa;
+margin-bottom:40px;
 }
 
-.card-container{
-    display:flex;
-    gap:40px;
-    justify-content:center;
+.cards{
+display:flex;
+gap:40px;
 }
 
 .card{
-    background:#111;
-    padding:30px;
-    width:250px;
-    border-radius:15px;
-    box-shadow:0 0 20px rgba(255,255,255,0.05);
-    transition:0.3s;
-}
-
-.card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 0 30px rgba(255,255,255,0.1);
-}
-
-.icon{
-    font-size:40px;
-    margin-bottom:15px;
-}
-
-.card h2{
-    margin:10px 0;
-}
-
-.card p{
-    color:#bbb;
-    font-size:14px;
-    margin-bottom:20px;
+background:#111;
+padding:30px;
+border-radius:12px;
+width:250px;
 }
 
 button{
-    padding:12px 20px;
-    border:none;
-    border-radius:8px;
-    background:#fff;
-    color:#000;
-    cursor:pointer;
-    font-weight:600;
+padding:12px 20px;
+border:none;
+background:#fff;
+color:#000;
+cursor:pointer;
+margin-top:15px;
 }
-
-button:hover{
-    background:#ddd;
-}
-
-a{
-    text-decoration:none;
-}
-
 </style>
 </head>
 
@@ -92,30 +58,22 @@ a{
 <div class="container">
 
 <h1>Aerial Imagery</h1>
-<p class="subtitle">Choose your preferred mode to continue</p>
+<p class="subtitle">Choose your mode</p>
 
-<div class="card-container">
+<div class="cards">
 
-    <!-- Normal Mode -->
-    <div class="card">
-        <div class="icon">👁️</div>
-        <h2>Normal</h2>
-        <p>Standard interface with full visual features</p>
-        <a href="normal.html">
-            <button>Enter Normal Mode</button>
-        </a>
-    </div>
+<div class="card">
+<h2>Normal</h2>
+<p>Standard UI</p>
+<a href="normal.html"><button>Enter</button></a>
+</div>
 
-    <!-- Blind Mode -->
-    <div class="card">
-        <div class="icon">🧑‍🦯</div>
-        <h2>Blind</h2>
-        <p>Accessibility-optimized interface with audio support</p>
-        <a href="blind.html">
-            <button>Enter Blind Mode</button>
-        </a>
-    </div>
-    
+<div class="card">
+<h2>Blind</h2>
+<p>Accessible UI</p>
+<a href="blind.html"><button>Enter</button></a>
+</div>
+
 </div>
 
 </div>
