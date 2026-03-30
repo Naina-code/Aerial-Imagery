@@ -4,266 +4,65 @@
 <meta charset="UTF-8">
 <title>Normal Mode</title>
 
-<style>
+<!-- Link CSS -->
+<link rel="stylesheet" href="style.css">
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Segoe UI;
-}
-
-body{
-background:black;
-color:white;
-}
-
-/* Layout */
-
-.layout{
-display:flex;
-min-height:100vh;
-}
-
-/* History Sidebar */
-
-.sidebar{
-width:250px;
-background:black;
-border-right:1px solid #333;
-padding:20px;
-}
-
-.sidebar h2{
-margin-bottom:20px;
-}
-
-.history-item{
-background:#111;
-padding:10px;
-border-radius:6px;
-margin-bottom:10px;
-cursor:pointer;
-}
-
-/* Main */
-
-.main{
-flex:1;
-padding:30px;
-}
-
-/* Upload Box */
-
-.upload-box{
-border:2px dashed #555;
-padding:40px;
-text-align:center;
-margin-top:40px;
-border-radius:10px;
-}
-
-.upload-box input{
-margin-top:15px;
-}
-
-/* Image Preview */
-
-#preview{
-margin-top:20px;
-max-width:300px;
-display:none;
-}
-
-/* Buttons */
-
-button{
-padding:10px 20px;
-margin:10px;
-border:none;
-border-radius:6px;
-cursor:pointer;
-background:white;
-color:black;
-}
-
-/* Description */
-
-#description{
-margin-top:20px;
-font-size:18px;
-}
-
-/* Audio Controls */
-
-.controls{
-margin-top:20px;
-}
-
-</style>
 </head>
 
 <body>
 
+<!-- Layout -->
 <div class="layout">
 
-<!-- Sidebar -->
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>History</h2>
+        <div id="historyList"></div>
+    </div>
 
-<div class="sidebar">
+    <!-- Main Content -->
+    <div class="main">
 
-<h2>History</h2>
+        <a href="index.html" class="back">← Back to Home</a>
 
-<div id="historyList"></div>
+        <h1 class="title">Normal Mode</h1>
 
-</div>
+        <!-- Upload Section -->
+        <div class="upload-box">
 
-<!-- Main Content -->
+            <p>Upload or Drag Image</p>
 
-<div class="main">
+            <input type="file" id="imageUpload" accept="image/*">
 
-<a href="index.html">← Back to Home</a>
+            <br>
 
-<h1 style="margin-top:20px;">Normal Mode</h1>
+            <img id="preview">
 
-<div class="upload-box">
+            <br>
 
-<p>Upload or Drag Image</p>
+            <button onclick="generateDescription()">Generate Description</button>
 
-<input type="file" id="imageUpload" accept="image/*">
+        </div>
 
-<br>
+        <!-- Description -->
+        <p id="description"></p>
 
-<img id="preview">
+        <!-- Audio Controls -->
+        <div class="controls">
 
-<br>
+            <button onclick="playAudio()">Play</button>
+            <button onclick="pauseAudio()">Pause</button>
+            <button onclick="resumeAudio()">Resume</button>
+            <button onclick="rewindAudio()">Back 10s</button>
 
-<button onclick="generateDescription()">Generate Description</button>
+        </div>
 
-</div>
-
-<p id="description"></p>
-
-<!-- Audio Controls -->
-
-<div class="controls">
-
-<button onclick="playAudio()">Play</button>
-
-<button onclick="pauseAudio()">Pause</button>
-
-<button onclick="resumeAudio()">Resume</button>
-
-<button onclick="rewindAudio()">Back 10s</button>
+    </div>
 
 </div>
 
-</div>
-
-</div>
-
-<script>
-
-let audio = new Audio()
-
-// Preview Image
-
-document.getElementById("imageUpload").addEventListener("change", function(){
-
-let file = this.files[0]
-
-if(file){
-
-let reader = new FileReader()
-
-reader.onload = function(e){
-let preview = document.getElementById("preview")
-preview.src = e.target.result
-preview.style.display="block"
-}
-
-reader.readAsDataURL(file)
-
-}
-
-})
-
-// Generate Description
-
-async function generateDescription(){
-
-let file = document.getElementById("imageUpload").files[0]
-
-if(!file){
-alert("Please select image")
-return
-}
-
-let formData = new FormData()
-formData.append("image", file)
-
-let res = await fetch("http://127.0.0.1:5000/upload",{
-method:"POST",
-body:formData
-})
-
-let data = await res.json()
-
-let text = data.description
-
-document.getElementById("description").innerText = text
-
-addHistory(text)
-
-generateAudio(text)
-
-}
-
-// Text to Speech
-
-function generateAudio(text){
-
-let speech = new SpeechSynthesisUtterance(text)
-speech.lang="en-US"
-
-window.speechSynthesis.speak(speech)
-
-}
-
-// Controls
-
-function playAudio(){
-let text = document.getElementById("description").innerText
-generateAudio(text)
-}
-
-function pauseAudio(){
-window.speechSynthesis.pause()
-}
-
-function resumeAudio(){
-window.speechSynthesis.resume()
-}
-
-function rewindAudio(){
-window.speechSynthesis.cancel()
-generateAudio(document.getElementById("description").innerText)
-}
-
-// History
-
-function addHistory(text){
-
-let history = document.getElementById("historyList")
-
-let item = document.createElement("div")
-item.className="history-item"
-item.innerText=text
-
-history.prepend(item)
-
-}
-
-</script>
+<!-- Link JS -->
+<script src="normal.js"></script>
 
 </body>
 </html>
